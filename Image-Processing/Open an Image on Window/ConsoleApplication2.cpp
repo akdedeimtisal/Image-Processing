@@ -1,32 +1,22 @@
-﻿// ConsoleApplication2.cpp : Bu dosya 'main' işlevi içeriyor. Program yürütme orada başlayıp biter.
-//
+//Kodu yazmadan önce Visual Studio'ya OpenCV kütüphanesini dahil etmemiz gerekiyor. 
+
 
 #include <iostream>
 #include <opencv2\opencv.hpp>
 using namespace std;
 using namespace cv;
 int main()
-{
-    Mat img = imread("C:/Users/ASUS/Desktop/akinci.jpg");
+{   // Mat sınıfı, görüntü işleme yapacağımız görseli matris haline getirir.
+    Mat img = imread("C:/Users/ASUS/Desktop/akinci.jpg"); // buraya görselin adını eğer projeyle aynı dosyadaysa direkt yazabiliriz, değilse burada yazdığım gibi yolunu yazmamız gerekiyor.
     if (img.empty()) {
         cout << "görsel yüklenmedi" << endl;
         system("pause");
         return -1;
     }
-    namedWindow("deneme", 40);
-    imshow("deneme", img);
+    namedWindow("deneme", 40);  //namedWindow ile deneme adında bir pencere açıyoruz, boyutunu 40 olarak belirledim, ama istediğimiz boyutu görsele göre girebiliriz.
+    imshow("deneme", img); //deneme penceresine img görselini imshow ile yerleştiriyoruz.
     waitKey(0);
     destroyWindow("deneme");
     return 0;
 }
 
-// Programı çalıştır: Ctrl + F5 veya Hata Ayıkla > Hata Ayıklamadan Başlat menüsü
-// Programda hata ayıkla: F5 veya Hata Ayıkla > Hata Ayıklamayı Başlat menüsü
-
-// Kullanmaya Başlama İpuçları: 
-//   1. Dosyaları eklemek/yönetmek için Çözüm Gezgini penceresini kullanın
-//   2. Kaynak denetimine bağlanmak için Takım Gezgini penceresini kullanın
-//   3. Derleme çıktısını ve diğer iletileri görmek için Çıktı penceresini kullanın
-//   4. Hataları görüntülemek için Hata Listesi penceresini kullanın
-//   5. Yeni kod dosyaları oluşturmak için Projeye Git > Yeni Öğe ekle veya varolan kod dosyalarını projeye eklemek için Proje > Var Olan Öğeyi Ekle adımlarını izleyin
-//   6. Bu projeyi daha sonra yeniden açmak için Dosya > Aç > Proje'ye gidip .sln uzantılı dosyayı seçin
